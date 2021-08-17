@@ -31,7 +31,7 @@
         </li>
       </ul>
     </div>
-    <div class="main">
+    <div class="main"  >
      <section data-id="1"  class="">
        <aside class="left">
          <div class="content">
@@ -45,10 +45,14 @@
          </div>
        </aside>
 
-       <aside class="right">
-         <div class="content">
-           <img src="./assets/project1/img1.png" alt="">
-           <img src="./assets/project1/img2.png" alt="">
+       <aside class="right" >
+         <div class="content" id="scene">
+           <div class="img" data-depth="0.2" >
+             <img src="./assets/project1/img1.png" alt="">
+           </div>
+           <div class="img" data-depth="0.3" >
+             <img src="./assets/project1/img2.png" alt="">
+           </div>
          </div>
        </aside>
      </section>
@@ -68,8 +72,12 @@
 
        <aside class="right">
          <div class="content">
+          <div class="img" data-depth="0.2" >
            <img src="./assets/project1/img1.png" alt="">
-           <img src="./assets/project1/img2.png" alt="">
+          </div>
+          <div class="img" data-depth="0.3" >
+            <img src="./assets/project1/img2.png" alt="">
+          </div> 
          </div>
        </aside>
      </section>
@@ -88,14 +96,18 @@
 
        <aside class="right">
          <div class="content">
-           <img src="./assets/project1/img1.png" alt="">
-           <img src="./assets/project1/img2.png" alt="">
+          <div class="img" data-depth="0.2" >
+            <img src="./assets/project1/img1.png" alt="">
+          </div>
+          <div class="img" data-depth="0.3" >
+            <img src="./assets/project1/img2.png" alt="">
+          </div>
          </div>
        </aside>
      </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.12/lottie.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script src="/src/three.js"></script>
     <script src="/src/dat-gui.js"></script>

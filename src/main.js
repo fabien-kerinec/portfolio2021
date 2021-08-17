@@ -91,3 +91,10 @@ function choose(number){
     triggerNavigate = false
   }
 }
+let scenes = [];
+const contentList = document.querySelectorAll("section .right .content");
+if(contentList.length > 0){
+  contentList.forEach((content, index) => {
+    scenes[index] = new Parallax(content)
+  });
+}
