@@ -1,105 +1,3 @@
-import '../styles/style.scss'
-let loaderElement = document.getElementById('lottie')
-let loader = lottie.loadAnimation({
-  container: loaderElement, // the dom element that will contain the animation
-  renderer: 'svg',
-  loop: false,
-  autoplay: false,
-  name: 'loader',
-  path: '../assets/loader.json', // the path to the animation json
-})
-// loader.goToAndStop(20, true)
-let max = 70
-let index = 0
-let percent = 0
-let current = 1
-let next = 2
-let loaderInterval = setInterval(() => {
-  index++
-  percent = (index * max) / 100
-  loader.goToAndStop(percent, true)
-  document.getElementById('percent').innerHTML = index + '%'
-  if (index >= 100) {
-    clearInterval(loaderInterval)
-    loaderElement.classList.add('finished')
-    // setTimeout(() => {
-    //   document.querySelector("section[data-id='"+current+"']").classList.add("displayup")
-    //   setTimeout(() => {
-    //     document.querySelector("section[data-id='"+current+"']").classList.add("display")
-    //   }, 2000);
-    // }, 200);
-
-    setTimeout(() => {
-      document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
-      setTimeout(() => {
-        document.querySelector("section[data-id='"+current+"']").classList.add("display")
-      }, 2000);
-    }, 200);
-    // nextItem(current, next)
-  }
-}, 10)
-
-function nextItem (current, next){
-  setTimeout(() => {
-    document.querySelector("section[data-id='"+current+"']").classList.add("mask", "maskup")
-    setTimeout(() => {
-      document.querySelector("section[data-id='"+next+"']").classList.add("displayup")
-      setTimeout(() => {
-      
-        document.querySelector("section[data-id='"+next+"']").classList.add("display")
-      }, 100);
-      document.querySelector("section[data-id='"+current+"']").classList.remove("mask", "maskup", "maskdown", "display", "displayup", "displaydown")
-      current = next;
-      triggerNavigate = false
-    }, 1500);
-  }, 0);
-}
-function prevItem(current, next){
-  setTimeout(() => {
-    document.querySelector("section[data-id='"+current+"']").classList.add("mask", "maskdown")
-    setTimeout(() => {
-      document.querySelector("section[data-id='"+next+"']").classList.add("displaydown")
-      setTimeout(() => {
-        document.querySelector("section[data-id='"+next+"']").classList.add("display")
-      }, 100);
-      document.querySelector("section[data-id='"+current+"']").classList.remove("mask", "maskup", "maskdown", "display", "displayup", "displaydown")
-      current = next;
-      triggerNavigate = false
-    }, 1500);
-  }, 0);
-}
-const navigateList = document.querySelectorAll(".navigate ul li")
-let triggerNavigate = false
-navigateList.forEach(item => {
-  item.addEventListener("click", function(){
-    if(!triggerNavigate){
-      triggerNavigate = true
-      choose(this.dataset.id) 
-    }
-  })
-});
-
-
-function choose(number){
-  if(parseInt(current) > parseInt(number)){
-    prevItem(parseInt(current), parseInt(number))
-    current = parseInt(number)
-  }else if (parseInt(current) < parseInt(number)){
-    nextItem(parseInt(current), parseInt(number))
-    current = parseInt(number)
-  }else{
-    triggerNavigate = false
-  }
-}
-let scenes = [];
-const contentList = document.querySelectorAll("section .right .content");
-if(contentList.length > 0){
-  contentList.forEach((content, index) => {
-    scenes[index] = new Parallax(content)
-  });
-}
-
-
 const displacementSlider = function (opts) {
 
   let vertex = `
@@ -139,7 +37,7 @@ const displacementSlider = function (opts) {
 
         }
     `;
-  console.log("new");
+
   let images = opts.images,image,sliderImages = [];;
   let canvasWidth = images[0].clientWidth;
   let canvasHeight = images[0].clientHeight;
@@ -168,7 +66,7 @@ const displacementSlider = function (opts) {
 
   let loader = new THREE.TextureLoader();
   loader.crossOrigin = "anonymous";
-  console.log(images);
+
   images.forEach(img => {
 
     image = loader.load(img.getAttribute('src') + '?v=' + Date.now());
@@ -214,21 +112,21 @@ const displacementSlider = function (opts) {
 
   let addEvents = function () {
 
-    let pagButtons = Array.from(document.getElementById('navig').querySelectorAll('li'));
+    let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
     let isAnimating = false;
 
     pagButtons.forEach(el => {
 
       el.addEventListener('click', function () {
+
         if (!isAnimating) {
-          console.log("click");
 
           isAnimating = true;
 
-          document.getElementById('navig').querySelectorAll('.active')[0].className = '';
+          document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
           this.className = 'active';
 
-          let slideId = parseInt(this.dataset.id);
+          let slideId = parseInt(this.dataset.slide, 10);
 
           mat.uniforms.nextImage.value = sliderImages[slideId];
           mat.uniforms.nextImage.needsUpdate = true;
@@ -237,13 +135,59 @@ const displacementSlider = function (opts) {
             value: 1,
             ease: 'Expo.easeInOut',
             onComplete: function () {
-              console.log("wefesrg");
               mat.uniforms.currentImage.value = sliderImages[slideId];
               mat.uniforms.currentImage.needsUpdate = true;
               mat.uniforms.dispFactor.value = 0.0;
               isAnimating = false;
             } });
+
+
+          let slideTitleEl = document.getElementById('slide-title');
+          let slideStatusEl = document.getElementById('slide-status');
+          let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
+          let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
+
+          TweenLite.fromTo(slideTitleEl, 0.5,
+          {
+            autoAlpha: 1,
+            y: 0 },
+
+          {
+            autoAlpha: 0,
+            y: 20,
+            ease: 'Expo.easeIn',
+            onComplete: function () {
+              slideTitleEl.innerHTML = nextSlideTitle;
+
+              TweenLite.to(slideTitleEl, 0.5, {
+                autoAlpha: 1,
+                y: 0 });
+
+            } });
+
+
+          TweenLite.fromTo(slideStatusEl, 0.5,
+          {
+            autoAlpha: 1,
+            y: 0 },
+
+          {
+            autoAlpha: 0,
+            y: 20,
+            ease: 'Expo.easeIn',
+            onComplete: function () {
+              slideStatusEl.innerHTML = nextSlideStatus;
+
+              TweenLite.to(slideStatusEl, 0.5, {
+                autoAlpha: 1,
+                y: 0,
+                delay: 0.1 });
+
+            } });
+
+
         }
+
       });
 
     });
@@ -265,12 +209,11 @@ const displacementSlider = function (opts) {
 };
 
 imagesLoaded(document.querySelectorAll('img'), () => {
-  console.log("load");
+
   document.body.classList.remove('loading');
-  const el = document.querySelector('.imageItem');
+
+  const el = document.getElementById('slider');
   const imgs = Array.from(el.querySelectorAll('img'));
-  console.log(el);
-  console.log(imgs);
   new displacementSlider({
     parent: el,
     images: imgs });
