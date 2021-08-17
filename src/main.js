@@ -40,7 +40,6 @@ let loaderInterval = setInterval(() => {
 }, 10)
 
 function nextItem (current, next){
-  console.log(current, next);
   setTimeout(() => {
     document.querySelector("section[data-id='"+current+"']").classList.add("mask", "maskup")
     setTimeout(() => {
@@ -82,14 +81,10 @@ navigateList.forEach(item => {
 
 
 function choose(number){
-  console.log("yooo");
-  console.log(current, parseInt(number));
   if(parseInt(current) > parseInt(number)){
-    console.log("yooo1");
     prevItem(parseInt(current), parseInt(number))
     current = parseInt(number)
   }else if (parseInt(current) < parseInt(number)){
-    console.log("yooo2");
     nextItem(parseInt(current), parseInt(number))
     current = parseInt(number)
   }else{
