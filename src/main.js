@@ -12,32 +12,9 @@ let loader = lottie.loadAnimation({
 let max = 70
 let index = 0
 let percent = 0
-let current = 1
+let current = 0
 let next = 2
-let loaderInterval = setInterval(() => {
-  index++
-  percent = (index * max) / 100
-  loader.goToAndStop(percent, true)
-  document.getElementById('percent').innerHTML = index + '%'
-  if (index >= 100) {
-    clearInterval(loaderInterval)
-    loaderElement.classList.add('finished')
-    // setTimeout(() => {
-    //   document.querySelector("section[data-id='"+current+"']").classList.add("displayup")
-    //   setTimeout(() => {
-    //     document.querySelector("section[data-id='"+current+"']").classList.add("display")
-    //   }, 2000);
-    // }, 200);
 
-    setTimeout(() => {
-      document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
-      setTimeout(() => {
-        document.querySelector("section[data-id='"+current+"']").classList.add("display")
-      }, 2000);
-    }, 200);
-    // nextItem(current, next)
-  }
-}, 10)
 
 function nextItem (current, next){
   setTimeout(() => {
@@ -91,13 +68,7 @@ function choose(number){
     triggerNavigate = false
   }
 }
-let scenes = [];
-const contentList = document.querySelectorAll("section .right .content");
-if(contentList.length > 0){
-  contentList.forEach((content, index) => {
-    scenes[index] = new Parallax(content)
-  });
-}
+
 
 
 const displacementSlider = function (opts) {
@@ -195,12 +166,13 @@ const displacementSlider = function (opts) {
     uniforms: {
       dispFactor: { type: "f", value: 0.0 },
       currentImage: { type: "t", value: sliderImages[0] },
-      nextImage: { type: "t", value: sliderImages[1] } },
-
+      nextImage: { type: "t", value: sliderImages[1] } 
+    },
     vertexShader: vertex,
     fragmentShader: fragment,
     transparent: true,
-    opacity: 1.0 });
+    opacity: 1.0 
+  });
 
 
   let geometry = new THREE.PlaneBufferGeometry(
@@ -237,7 +209,6 @@ const displacementSlider = function (opts) {
             value: 1,
             ease: 'Expo.easeInOut',
             onComplete: function () {
-              console.log("wefesrg");
               mat.uniforms.currentImage.value = sliderImages[slideId];
               mat.uniforms.currentImage.needsUpdate = true;
               mat.uniforms.dispFactor.value = 0.0;
@@ -263,17 +234,89 @@ const displacementSlider = function (opts) {
   };
   animate();
 };
+var imgLoad, imageCount, loadedImageCount
+window.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM entièrement chargé et analysé");
+  imgLoad = imagesLoaded(document.querySelectorAll('img'));
+  imageCount =  document.querySelectorAll('img').length;
+  loadedImageCount = 0
+  updateProgress( 0 );
+  imgLoad.on( 'progress', onProgress );
+  imgLoad.on( 'done', doneLoad);
+});
 
-imagesLoaded(document.querySelectorAll('img'), () => {
-  console.log("load");
+// imgLoad.on( 'always', onAlways );
+
+function resetProgress() {
+  loadedImageCount = 0;
+  
+}
+// let loaderInterval = setInterval(() => {
+//   index++
+//   percent = (index * max) / 100
+//   loader.goToAndStop(percent, true)
+//   // document.getElementById('percent').innerHTML = index + '%'
+//   if (index >= 100) {
+//     clearInterval(loaderInterval)
+//     loaderElement.classList.add('finished')
+//     // setTimeout(() => {
+//     //   document.querySelector("section[data-id='"+current+"']").classList.add("displayup")
+//     //   setTimeout(() => {
+//     //     document.querySelector("section[data-id='"+current+"']").classList.add("display")
+//     //   }, 2000);
+//     // }, 200);
+
+//     setTimeout(() => {
+//       document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
+//       setTimeout(() => {
+//         document.querySelector("section[data-id='"+current+"']").classList.add("display")
+//       }, 2000);
+//     }, 200);
+//     // nextItem(current, next)
+//   }
+// }, 10)
+
+function updateProgress( value ) {
+  percent = (index * max) / 100
+  loader.goToAndStop(percent, true)
+}
+
+function onProgress( imgLoad, image ) {
+  console.log("progress");
+  // change class if the image is loaded or broken
+  image.img.parentNode.className = image.isLoaded ? '' : 'is-broken';
+  // update progress element
+  loadedImageCount++;
+  updateProgress( loadedImageCount );
+  percent = (loadedImageCount * 100) / imageCount
+  console.log(loadedImageCount  );
+  loader.goToAndStop(percent, true)
+}
+function doneLoad( instance ) {
+  console.log("done");
+  loaderElement.classList.add('finished')
   document.body.classList.remove('loading');
-  const el = document.querySelector('.imageItem');
+  console.log(document.querySelector('body'));
+  const el = document.querySelector('#imgitem');
   const imgs = Array.from(el.querySelectorAll('img'));
-  console.log(el);
-  console.log(imgs);
+  let scenes = [];
+  const contentList = document.querySelectorAll("section .right .content");
+  if(contentList.length > 0){
+    contentList.forEach((content, index) => {
+      scenes[index] = new Parallax(content)
+    });
+  }
+  setTimeout(() => {
+    document.querySelector('.main').classList.add("display");
+    document.querySelector('.navigate').classList.add("display");
+    document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
+    setTimeout(() => {
+      document.querySelector("section[data-id='"+current+"']").classList.add("display")
+    }, 2000);
+  }, 200);
   new displacementSlider({
     parent: el,
-    images: imgs });
-
-
-});
+    images: imgs 
+  });
+ 
+}

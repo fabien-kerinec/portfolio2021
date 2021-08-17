@@ -73,6 +73,11 @@ body {
   text-transform: uppercase;
   z-index: 100;
   display: flex;
+  opacity: 0;
+  &.display{
+    transition: opacity .5s cubic-bezier(0.000, 0.000, 0.230, 1);
+    opacity: 1;
+  }
   // font-weight: bold;
   section{
     pointer-events: none;
@@ -407,6 +412,11 @@ body {
   transform: translate(0,-50%);
   // height: 100vh;
   z-index: 1000;
+  opacity: 0;
+  &.display{
+    transition: opacity .5s cubic-bezier(0.000, 0.000, 0.230, 1);
+    opacity: 1;
+  }
   ul{
     padding: 0;
     list-style: none;
