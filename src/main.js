@@ -251,31 +251,6 @@ function resetProgress() {
   loadedImageCount = 0;
   
 }
-// let loaderInterval = setInterval(() => {
-//   index++
-//   percent = (index * max) / 100
-//   loader.goToAndStop(percent, true)
-//   // document.getElementById('percent').innerHTML = index + '%'
-//   if (index >= 100) {
-//     clearInterval(loaderInterval)
-//     loaderElement.classList.add('finished')
-//     // setTimeout(() => {
-//     //   document.querySelector("section[data-id='"+current+"']").classList.add("displayup")
-//     //   setTimeout(() => {
-//     //     document.querySelector("section[data-id='"+current+"']").classList.add("display")
-//     //   }, 2000);
-//     // }, 200);
-
-//     setTimeout(() => {
-//       document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
-//       setTimeout(() => {
-//         document.querySelector("section[data-id='"+current+"']").classList.add("display")
-//       }, 2000);
-//     }, 200);
-//     // nextItem(current, next)
-//   }
-// }, 10)
-
 function updateProgress( value ) {
   percent = (value * 100) / imageCount
   loader.goToAndStop(percent, true)
@@ -283,8 +258,7 @@ function updateProgress( value ) {
 
 function onProgress( imgLoad, image ) {
   console.log("progress");
-  // change class if the image is loaded or broken
-  image.img.parentNode.className = image.isLoaded ? '' : 'is-broken';
+
   // update progress element
   loadedImageCount++;
   updateProgress( loadedImageCount );
