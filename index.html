@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
     <title>Vite App</title>
   </head>
   <body>
@@ -12,9 +15,92 @@
       <div id="lottie"></div>
       <p id="percent">0</p>
     </div>
-    <div class="main"></div>
+    <div class="navigate">
+      <ul>
+        <li data-id="1">
+          <p>project 1</p>
+          <span></span>
+        </li>
+        <li data-id="2">
+          <p>project 2</p>
+          <span></span>
+        </li>
+        <li data-id="3">
+          <p>project 3</p>
+          <span></span>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+     <section data-id="1"  class="">
+       <aside class="left">
+         <div class="content">
+           <h2>Rock siscor paper</h2>
+           <p>
+             NodeJS - 
+             VueJS - 
+             SocketIO
+            </p>
+             <p class="more">See more</p>
+         </div>
+       </aside>
+
+       <aside class="right">
+         <div class="content">
+           <img src="./assets/project1/img1.png" alt="">
+           <img src="./assets/project1/img2.png" alt="">
+         </div>
+       </aside>
+     </section>
+     <section data-id="2" class="">
+       <aside class="left">
+         <div class="content">
+           <h2>projet 2</h2>
+           <p>
+             NodeJS - 
+             VueJS - 
+             SocketIO
+            </p>
+            <p class="more">See more</p>
+           
+         </div>
+       </aside>
+
+       <aside class="right">
+         <div class="content">
+           <img src="./assets/project1/img1.png" alt="">
+           <img src="./assets/project1/img2.png" alt="">
+         </div>
+       </aside>
+     </section>
+     <section data-id="3" class="">
+       <aside class="left">
+         <div class="content">
+           <h2>projet 3</h2>
+           <p>
+             NodeJS - 
+             ReactJS -
+            </p>
+            <p class="more">See more</p>
+           
+         </div>
+       </aside>
+
+       <aside class="right">
+         <div class="content">
+           <img src="./assets/project1/img1.png" alt="">
+           <img src="./assets/project1/img2.png" alt="">
+         </div>
+       </aside>
+     </section>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.12/lottie.min.js"></script>
 
     <script type="module" src="/src/main.js"></script>
+    <script src="/src/three.js"></script>
+    <script src="/src/dat-gui.js"></script>
+    <script src="/src/gsap.js"></script>
+    <script src="/src/sketch.js"></script>
+    <script src="/src/demo5.js"></script>
   </body>
 </html>

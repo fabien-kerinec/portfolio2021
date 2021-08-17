@@ -5,7 +5,8 @@ $dark--gradiant: radial-gradient(
   rgba(67, 127, 243, 0.28) 17.3%,
   rgba(67, 47, 148, 0) 93.75%
 );
-
+$main-color: transparent;
+$secondary-color: white;
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,7 +24,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: $dark--background;
+  overflow: hidden;
+  font-family: 'Patua One', cursive;
   .bg {
+	  pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -40,6 +44,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  pointer-events: none;
   #lottie {
     width: 250px;
     height: 250px;
@@ -58,3 +64,362 @@ body {
     }
   }
 }
+
+.main{
+	width: 100%;
+	
+	
+	color: white;
+	text-transform: uppercase;
+	z-index: 100;
+	display: flex;
+	// font-weight: bold;
+	section{
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		
+		width: 100%;
+		display: flex;
+		z-index: 0;
+		aside{
+			position: relative;
+			&.left{
+				left: 5vw;
+			}
+
+			width: 50%;
+			height: 100vh;
+
+			.content{
+				position: absolute;
+				width: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				>p{
+					font-size: 3vw;
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+			
+					
+					background-image: linear-gradient(
+						0deg,
+						$secondary-color,
+						$secondary-color 50%,
+						$main-color 50%);
+					background-size: 100% 200%;
+					opacity: 0;
+					margin: 0;
+				}
+				h2{
+					font-weight: normal;
+					font-size: 40px;
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					
+					background-image: linear-gradient(
+						0deg,
+						$secondary-color,
+						$secondary-color 50%,
+						$main-color 50%);
+					background-size: 100% 200%;
+					opacity: 0;
+					margin: 0;
+				}
+
+				>p.more{
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					font-size: 3vw;	
+					-webkit-text-stroke: 1px white;
+					background-image: linear-gradient(
+						0deg,
+						$secondary-color,
+						$secondary-color 30%,
+						$main-color 60%);
+					background-position: 100% 0%;
+					letter-spacing: 0.25em;
+					opacity: 0;
+					margin: 0;
+					&:hover{
+						cursor: pointer;
+						background-position: 100% 100%;
+					}
+				}
+	
+				
+				img{
+					width:20vw;
+					height:calc(20vw / 0.7);
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-90%, -50%);
+					z-index: 1;
+					opacity: 0;
+					&:first-child{
+						z-index: 2;
+					}
+				}
+				
+			}
+		}
+		&.displayup{
+			aside{
+				.content{
+					>p{
+						background-position: 100% 0%;
+						transform: translateY(+50px);
+					}
+					h2{
+						background-position: 100% 0%;
+						transform: translateY(+50px);
+					}
+					
+		
+					>p.more{
+						background-position: 100% 0%;
+						transform: translateY(+50px);
+						&:hover{
+							cursor: pointer;
+							background-position: 100% 100%;
+						}
+					}
+		
+					
+					img{
+						&:first-child{
+							transform: translate(-90%, calc(-50% + 100px));
+						}
+						&:nth-child(2){
+							transform: translate(calc(-90% + 150px), calc(-50% + 200px));
+						}
+					}
+				}
+			}
+			
+		}
+		&.displaydown{
+			aside{
+				.content{
+					>p{
+						background-position: 100% 200%;
+						transform: translateY(-150px);
+					}
+					h2{
+						background-position: 100% 200%;
+						transform: translateY(-50px);
+					}
+					
+					>p.more{
+						background-position: 100% 0%;
+						transform: translateY(-50px);
+						&:hover{
+							cursor: pointer;
+							background-position: 100% 100%;
+						}
+					}
+					
+					img{
+						&:first-child{
+							transform: translate(-90%, calc(-50% - 200px));
+						}
+						&:nth-child(2){
+							transform: translate(calc(-90% + 150px), calc(-50%));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	section{
+		z-index: 2;
+		&.display{
+			pointer-events: initial;
+			
+			aside{
+				.content{
+					h2, >p{
+						transition: 
+							opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+							transform 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+							 background-position 1s cubic-bezier(0.000, 0.000, 0.230, 1) .5s ;
+						opacity: 1;
+						transform: translateY(0px);
+						background-position: 100% 100%;
+					}
+					p.more{
+						transition: 
+							opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+							background-position 0.3s cubic-bezier(0.000, 0.000, 0.230, 1),
+							transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+						opacity: 1;
+						transform: translateY(0px);
+					}
+					img{
+						transition: 
+							opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+							transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+
+						opacity: 1;
+						&:first-child{
+							transform: translate(-90%, -50%);
+						}
+						&:nth-child(2){
+							transform: translate(calc(-90% + 150px), calc(-50% + 100px));
+						}
+					}
+				}
+				
+			}
+
+			&.mask{
+				&.maskdown{
+					aside{
+						.content{
+							h2, >p{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									 background-position 1s cubic-bezier(0.000, 0.000, 0.230, 1) .5s ;
+								opacity: 0;
+								transform: translateY(+100px);
+								background-position: 100% 0%;
+							}
+							p.more{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									background-position 0.3s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+								opacity:0;
+								transform: translateY(+100px);
+							}
+							img{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+		
+								opacity: 0;
+								&:first-child{
+									transform: translate(-90%, calc(-50% + 100px));
+								}
+								&:nth-child(2){
+									transform: translate(calc(-90% + 150px), calc(-50% + 250px));
+								}
+							}
+						}
+					}
+
+				}
+				&.maskup{
+					aside{
+						.content{
+							h2, >p{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									 background-position 1s cubic-bezier(0.000, 0.000, 0.230, 1) ;
+								opacity: 0;
+								transform: translateY(-100px);
+								background-position: 100% 200%;
+							}
+							p.more{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									background-position 0.3s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+								opacity:0;
+								transform: translateY(-100px);
+							}
+							img{
+								transition: 
+									opacity 1s cubic-bezier(0.000, 0.000, 0.230, 1),
+									transform 1s cubic-bezier(0.000, 0.000, 0.230, 1);
+		
+								opacity: 0;
+								&:first-child{
+									transform: translate(-90%, calc(-50% - 100px));
+								}
+								&:nth-child(2){
+									transform: translate(calc(-90% + 150px), calc(-50% - 50px));
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+	
+  
+}
+
+#slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.navigate{
+	position: fixed;
+	right: 12px;
+	top: 50%;
+	transform: translate(0,-50%);
+	// height: 100vh;
+	z-index: 1000;
+	ul{
+		padding: 0;
+		list-style: none;
+		li{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			p{
+				font-size: 1vw;
+				line-height: 1;
+				position: absolute;
+			}
+			span{
+				transform-origin: right center;
+				width: 50px;
+				height: 25px;
+				background-color: rgba(255, 255, 255, 0.5);
+				transform: scale3d(.8,1,1);
+				transition: 
+						background-color .3s cubic-bezier(0.000, 0.000, 0.230, 1),
+						transform .3s cubic-bezier(0.000, 0.000, 0.230, 1);
+			}
+			
+			&.active{
+				background-color: white;
+				transform: scale3d(1,1,1);
+			}
+			&:hover{
+				
+				cursor: pointer;
+				span{
+					background-color: white;
+					transform: scale3d(1,1,1);
+					transition: 
+						background-color .3s cubic-bezier(0.000, 0.000, 0.230, 1),
+						transform .3s cubic-bezier(0.000, 0.000, 0.230, 1);
+
+				}
+			}
+		}
+	}
+}
+
+
+
