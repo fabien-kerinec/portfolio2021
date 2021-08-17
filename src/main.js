@@ -110,8 +110,8 @@ const displacementSlider = function (opts) {
 
         }
     `;
-  console.log("new");
-  let images = opts.images,image,sliderImages = [];;
+  let images = opts.images,image,sliderImages = [];
+  console.log(images);
   let canvasWidth = images[0].clientWidth;
   let canvasHeight = images[0].clientHeight;
   let parent = opts.parent;
@@ -277,7 +277,7 @@ function resetProgress() {
 // }, 10)
 
 function updateProgress( value ) {
-  percent = (index * max) / 100
+  percent = (value * 100) / imageCount
   loader.goToAndStop(percent, true)
 }
 
@@ -288,35 +288,35 @@ function onProgress( imgLoad, image ) {
   // update progress element
   loadedImageCount++;
   updateProgress( loadedImageCount );
-  percent = (loadedImageCount * 100) / imageCount
-  console.log(loadedImageCount  );
-  loader.goToAndStop(percent, true)
 }
 function doneLoad( instance ) {
-  console.log("done");
-  loaderElement.classList.add('finished')
-  document.body.classList.remove('loading');
-  console.log(document.querySelector('body'));
-  const el = document.querySelector('#imgitem');
-  const imgs = Array.from(el.querySelectorAll('img'));
-  let scenes = [];
-  const contentList = document.querySelectorAll("section .right .content");
-  if(contentList.length > 0){
-    contentList.forEach((content, index) => {
-      scenes[index] = new Parallax(content)
-    });
-  }
   setTimeout(() => {
-    document.querySelector('.main').classList.add("display");
-    document.querySelector('.navigate').classList.add("display");
-    document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
+    
+    console.log("done");
+    loaderElement.classList.add('finished')
+    document.body.classList.remove('loading');
+    console.log(document.querySelector('body'));
+    const el = document.querySelector('#imgitem');
+    const imgs = Array.from(el.querySelectorAll('img'));
+    let scenes = [];
+    const contentList = document.querySelectorAll("section .right .content");
+    if(contentList.length > 0){
+      contentList.forEach((content, index) => {
+        scenes[index] = new Parallax(content)
+      });
+    }
     setTimeout(() => {
-      document.querySelector("section[data-id='"+current+"']").classList.add("display")
-    }, 2000);
-  }, 200);
-  new displacementSlider({
-    parent: el,
-    images: imgs 
-  });
+      document.querySelector('.main').classList.add("display");
+      document.querySelector('.navigate').classList.add("display");
+      document.querySelector("section[data-id='"+current+"']").classList.add("displaydown")
+      setTimeout(() => {
+        document.querySelector("section[data-id='"+current+"']").classList.add("display")
+      }, 2000);
+    }, 200);
+    new displacementSlider({
+      parent: el,
+      images: imgs 
+    });
+  }, 1000);
  
 }
