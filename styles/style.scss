@@ -182,6 +182,25 @@ body {
         }
         
       }
+      @media screen and (max-width:967px) {
+        &.right{
+          display: none;
+        }
+        &.left{
+          width: 100%;
+          left: 0;
+          .content{
+            width: 90%;
+            top: 80%;
+            h2{
+              font-size: 8vw;
+            }
+            p{
+              font-size: 7vw;
+            }
+          }
+        }
+      }
     }
     &.displayup{
       aside{
@@ -485,4 +504,9 @@ body {
   max-width: 100%;
   position: relative;
   z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  // display: none;
 }
