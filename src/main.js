@@ -6,7 +6,7 @@ let loader = lottie.loadAnimation({
   loop: false,
   autoplay: false,
   name: 'loader',
-  path: '../assets/loader.json', // the path to the animation json
+  path: '/loader.json', // the path to the animation json
 })
 // loader.goToAndStop(20, true)
 let max = 70
