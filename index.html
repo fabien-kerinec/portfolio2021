@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap"
+      rel="stylesheet"
+    />
     <title>Vite App</title>
   </head>
   <body>
@@ -14,6 +17,15 @@
     <div id="intro">
       <div id="lottie"></div>
     </div>
+    <div class="about">
+      <p>
+        <span class="content">
+          <span>About</span>
+          <span>About</span>
+        </span>
+      </p>
+    </div>
+
     <div id="navig" class="navigate">
       <ul>
         <li data-id="0" class="active">
@@ -31,91 +43,78 @@
       </ul>
     </div>
     <div class="main">
-     <section data-id="0"  class="">
-       <aside class="left">
-         <div class="content">
-           <h2>Rock siscor paper</h2>
-           <p>
-             NodeJS - 
-             VueJS - 
-             SocketIO
-            </p>
-             <p class="more">See more</p>
-         </div>
-       </aside>
-
-       <aside class="right" >
-         <div class="content" id="scene">
-           <div class="img" data-depth="0.2" >
-             <img src="./assets/project1/img1.png" alt="">
-           </div>
-           <div class="img" data-depth="0.3" >
-             <img src="./assets/project1/img2.png" alt="">
-           </div>
-         </div>
-       </aside>
-     </section>
-     <section data-id="1" class="">
-       <aside class="left">
-         <div class="content">
-           <h2>projet 2</h2>
-           <p>
-             NodeJS - 
-             VueJS - 
-             SocketIO
-            </p>
+      <section data-id="0" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>Rock siscor paper</h2>
+            <p>NodeJS - VueJS - SocketIO</p>
             <p class="more">See more</p>
-           
-         </div>
-       </aside>
-
-       <aside class="right">
-         <div class="content">
-          <div class="img" data-depth="0.2" >
-           <img src="./assets/project2/img1.png" alt="">
           </div>
-          <div class="img" data-depth="0.3" >
-            <img src="./assets/project2/img2.png" alt="">
-          </div> 
-         </div>
-       </aside>
-     </section>
-     <section data-id="2" class="">
-       <aside class="left">
-         <div class="content">
-           <h2>projet 3</h2>
-           <p>
-             NodeJS - 
-             ReactJS -
-            </p>
+        </aside>
+
+        <aside class="right">
+          <div class="content" id="scene">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project1/img1.png" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project1/img2.png" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="1" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>projet 2</h2>
+            <p>NodeJS - VueJS - SocketIO</p>
             <p class="more">See more</p>
-           
-         </div>
-       </aside>
-
-       <aside class="right">
-         <div class="content">
-          <div class="img" data-depth="0.2" >
-            <img src="./assets/project3/img1.png" alt="">
           </div>
-          <div class="img" data-depth="0.3" >
-            <img src="./assets/project3/img2.png" alt="">
-          </div>
-         </div>
-       </aside>
-     </section>
+        </aside>
 
-     <div id="imgitem" class="imageItem">  
-      <img src="./assets/project1/background.jpg" />
-			<img src="./assets/project2/background.jpg" />
-			<img src="./assets/project3/background.jpg" />
-     </div>
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project2/img1.png" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project2/img2.png" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="2" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>projet 3</h2>
+            <p>NodeJS - ReactJS -</p>
+            <p class="more">See more</p>
+          </div>
+        </aside>
+
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project3/img1.png" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project3/img2.png" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div id="imgitem" class="imageItem">
+        <img src="./assets/project1/background.jpg" />
+        <img src="./assets/project2/background.jpg" />
+        <img src="./assets/project3/background.jpg" />
+      </div>
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.12/lottie.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
   <script type="module" src="/src/main.js"></script>
 </html>
