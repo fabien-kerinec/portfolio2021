@@ -140,6 +140,7 @@ const displacementSlider = function (opts) {
   console.log(images)
   let canvasWidth = images[0].clientWidth
   let canvasHeight = images[0].clientHeight
+  console.log(canvasWidth, canvasHeight)
   let parent = opts.parent
   let renderWidth = Math.max(
     document.documentElement.clientWidth,
@@ -165,7 +166,8 @@ const displacementSlider = function (opts) {
   })
 
   renderer.setPixelRatio(window.devicePixelRatio)
-  renderer.setClearColor(0x23272a, 1.0)
+  // renderer.setClearColor(0x23272a, 1.0)
+  renderer.setClearColor(0xffffff, 1.0)
   renderer.setSize(renderW, renderH)
   parent.appendChild(renderer.domElement)
 
@@ -180,7 +182,7 @@ const displacementSlider = function (opts) {
   })
 
   let scene = new THREE.Scene()
-  scene.background = new THREE.Color(0x23272a)
+  scene.background = new THREE.Color(0xffffff)
   let camera = new THREE.OrthographicCamera(
     renderWidth / -2,
     renderWidth / 2,
@@ -324,7 +326,7 @@ function doneLoad(instance) {
       parent: el,
       images: imgs,
     })
-  }, 500)
+  }, 5000)
 }
 
 document.querySelector('.about').addEventListener('click', () => {

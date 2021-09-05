@@ -2,7 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap"
       rel="stylesheet"
     />
-    <title>Vite App</title>
+    <title>Fabien kerinec | front-end developer | Portfolio</title>
   </head>
   <body>
     <div class="bg"></div>
@@ -28,16 +38,24 @@
 
     <div id="navig" class="navigate">
       <ul>
-        <li data-id="0" class="active">
-          <p>project 1</p>
+        <li data-id="0">
+          <p>Twitch Bot</p>
           <span></span>
         </li>
         <li data-id="1">
-          <p>project 2</p>
+          <p>Rock-Scissors-Paper</p>
           <span></span>
         </li>
         <li data-id="2">
-          <p>project 3</p>
+          <p>cemoi</p>
+          <span></span>
+        </li>
+        <li data-id="3">
+          <p>Bicyclette</p>
+          <span></span>
+        </li>
+        <li data-id="4">
+          <p>DisneyLand</p>
           <span></span>
         </li>
       </ul>
@@ -46,8 +64,93 @@
       <section data-id="0" class="">
         <aside class="left">
           <div class="content">
-            <h2>Rock siscor paper</h2>
-            <p>NodeJS - VueJS - SocketIO</p>
+            <h2>Twitch Bot</h2>
+            <p>[WIP] ReactJS - TS - NodeJS - OBS websocket - Snapcamera</p>
+            <p class="more">See more</p>
+          </div>
+        </aside>
+
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project5/img1.jpg" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project5/img2.jpg" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="1" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>Rock-Scissors-Paper</h2>
+            <p>VueJS - SocketIO - NodeJS</p>
+            <p class="more">See more</p>
+          </div>
+        </aside>
+
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project4/img1.png" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project4/img2.png" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="2" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>Cemoi - 100 ans - website</h2>
+            <p>Wordpress</p>
+            <p class="more">See more</p>
+          </div>
+        </aside>
+
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <video
+                autoplay
+                loop
+                src="./assets/project2/capture1.webm"
+                alt=""
+              />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project2/img2.gif" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="3" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>A bicyclette vegetal - website</h2>
+            <p>jeykill - datoCMS</p>
+            <p class="more">See more</p>
+          </div>
+        </aside>
+
+        <aside class="right">
+          <div class="content">
+            <div class="img" data-depth="0.2">
+              <img src="./assets/project3/img1.gif" alt="" />
+            </div>
+            <div class="img" data-depth="0.3">
+              <img src="./assets/project3/img2.png" alt="" />
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section data-id="4" class="">
+        <aside class="left">
+          <div class="content">
+            <h2>DisneyLand - webapp</h2>
+            <p>VueJS - NodeJS</p>
             <p class="more">See more</p>
           </div>
         </aside>
@@ -63,51 +166,13 @@
           </div>
         </aside>
       </section>
-      <section data-id="1" class="">
-        <aside class="left">
-          <div class="content">
-            <h2>projet 2</h2>
-            <p>NodeJS - VueJS - SocketIO</p>
-            <p class="more">See more</p>
-          </div>
-        </aside>
-
-        <aside class="right">
-          <div class="content">
-            <div class="img" data-depth="0.2">
-              <img src="./assets/project2/img1.png" alt="" />
-            </div>
-            <div class="img" data-depth="0.3">
-              <img src="./assets/project2/img2.png" alt="" />
-            </div>
-          </div>
-        </aside>
-      </section>
-      <section data-id="2" class="">
-        <aside class="left">
-          <div class="content">
-            <h2>projet 3</h2>
-            <p>NodeJS - ReactJS -</p>
-            <p class="more">See more</p>
-          </div>
-        </aside>
-
-        <aside class="right">
-          <div class="content">
-            <div class="img" data-depth="0.2">
-              <img src="./assets/project3/img1.png" alt="" />
-            </div>
-            <div class="img" data-depth="0.3">
-              <img src="./assets/project3/img2.png" alt="" />
-            </div>
-          </div>
-        </aside>
-      </section>
 
       <div id="imgitem" class="imageItem">
-        <img src="./assets/project1/background.jpg" />
+        <img src="./assets/project1/bg.png" />
         <img src="./assets/project2/background.jpg" />
         <img src="./assets/project3/background.jpg" />
+        <img src="./assets/project4/bg.jpg" />
+        <img src="./assets/project5/bg.jpg" />
       </div>
     </div>
   </body>

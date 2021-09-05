@@ -167,7 +167,8 @@ body {
             z-index: 1;
           }
         }
-        img {
+        img,
+        video {
           width: 20vw;
           height: calc(20vw / 0.7);
           position: absolute;
@@ -224,12 +225,14 @@ body {
 
           div.img {
             &:first-child {
-              img {
+              img,
+              video {
                 transform: translate(-42vw, calc(-75% + 200px));
               }
             }
             &:nth-child(2) {
-              img {
+              img,
+              video {
                 transform: translate(calc(-1vw), calc(-50% + 200px));
               }
             }
@@ -260,12 +263,14 @@ body {
 
           div.img {
             &:first-child {
-              img {
+              img,
+              video {
                 transform: translate(-42vw, calc(-75% - 150px));
               }
             }
             &:nth-child(2) {
-              img {
+              img,
+              video {
                 transform: translate(calc(-1vw), calc(-50%));
               }
             }
@@ -299,20 +304,23 @@ body {
             transform: translateY(0px);
           }
           div.img {
-            img {
+            img,
+            video {
               transition: opacity 0.5s cubic-bezier(0, 0, 0.23, 1),
                 transform 0.5s cubic-bezier(0, 0, 0.23, 1);
             }
 
             opacity: 1;
             &:first-child {
-              img {
+              img,
+              video {
                 opacity: 1;
                 transform: translate(-42vw, -75%);
               }
             }
             &:nth-child(2) {
-              img {
+              img,
+              video {
                 opacity: 1;
                 transform: translate(calc(-1vw), calc(-50% + 100px));
               }
@@ -482,7 +490,7 @@ body {
 
 #imgitem {
   width: 100%;
-  max-width: 1200px;
+  // max-width: 1200px;
   height: 100%;
   margin: 0 auto;
   position: absolute;
