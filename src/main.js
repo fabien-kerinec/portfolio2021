@@ -326,7 +326,7 @@ function doneLoad(instance) {
       parent: el,
       images: imgs,
     })
-  }, 5000)
+  }, 1000)
 }
 
 document.querySelector('.about').addEventListener('click', () => {
