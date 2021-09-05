@@ -355,13 +355,15 @@ body {
                     transform 0.5s cubic-bezier(0, 0, 0.23, 1);
                 }
                 &:first-child {
-                  img {
+                  img,
+                  video {
                     opacity: 0;
                     transform: translate(-42vw, calc(-75% + 100px));
                   }
                 }
                 &:nth-child(2) {
-                  img {
+                  img,
+                  video {
                     opacity: 0;
                     transform: translate(calc(-1vw), calc(-50% + 250px));
                   }
@@ -390,19 +392,22 @@ body {
                 transform: translateY(-100px);
               }
               div.img {
-                img {
+                img,
+                video {
                   transition: opacity 1s cubic-bezier(0, 0, 0.23, 1),
                     transform 1s cubic-bezier(0, 0, 0.23, 1);
                 }
 
                 &:first-child {
-                  img {
+                  img,
+                  video {
                     opacity: 0;
                     transform: translate(-42vw, calc(-75% - 100px));
                   }
                 }
                 &:nth-child(2) {
-                  img {
+                  img,
+                  video {
                     opacity: 0;
                     transform: translate(calc(-1vw), calc(-50% - 100px));
                   }
@@ -530,6 +535,9 @@ body {
   z-index: 1000;
   color: $secondary-color;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
   p,
   span {
     display: flex;
@@ -558,5 +566,9 @@ body {
   span:nth-child(2) {
     position: absolute;
     transform: translateY(50px);
+  }
+  &.display {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

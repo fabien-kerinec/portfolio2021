@@ -320,6 +320,7 @@ function doneLoad(instance) {
         document
           .querySelector("section[data-id='" + current + "']")
           .classList.add('display')
+        document.querySelector('.about').classList.add('display')
       }, 750)
     }, 200)
     new displacementSlider({
