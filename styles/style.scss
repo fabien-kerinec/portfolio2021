@@ -163,9 +163,39 @@ body {
           letter-spacing: 0.25em;
           opacity: 0;
           margin: 0;
+          &.second {
+            font-size: 1vw;
+            background-clip: none;
+            -webkit-text-stroke: none;
+          }
+          a {
+            text-decoration: none;
+            color: $secondary-color;
+            &:visited {
+              color: $secondary-color;
+            }
+
+            position: relative;
+            &:after {
+              opacity: 0;
+              transition: opacity 0.3s;
+              content: '';
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background: $secondary-color;
+            }
+          }
           &:hover {
             cursor: pointer;
             background-position: 100% 100%;
+            a {
+              &:after {
+                opacity: 1;
+              }
+            }
           }
         }
 
@@ -275,6 +305,7 @@ body {
           > p.more {
             background-position: 100% 0%;
             transform: translateY(-50px);
+
             &:hover {
               cursor: pointer;
               background-position: 100% 100%;
@@ -645,6 +676,7 @@ body {
   }
 }
 .aboutContent {
+  pointer-events: none;
   z-index: 10;
   position: fixed;
   width: 95vw;
@@ -710,6 +742,7 @@ body {
     }
   }
   &.display {
+    pointer-events: initial;
     h2,
     p {
       opacity: 1;
