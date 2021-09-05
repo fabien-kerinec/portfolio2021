@@ -284,7 +284,7 @@ function resetProgress() {
   loadedImageCount = 0
 }
 function updateProgress(value) {
-  percent = (value * 100) / imageCount
+  percent = (value * 35) / imageCount
   loader.goToAndStop(percent, true)
 }
 
@@ -296,6 +296,12 @@ function onProgress(imgLoad, image) {
   updateProgress(loadedImageCount)
 }
 function doneLoad(instance) {
+  var valuedone = 35
+  setInterval(() => {
+    valuedone++
+    percent = (valuedone * 70) / imageCount
+    loader.goToAndStop(percent, true)
+  }, 1000 / 35)
   setTimeout(() => {
     console.log('done')
     loaderElement.classList.add('finished')
@@ -327,7 +333,7 @@ function doneLoad(instance) {
       parent: el,
       images: imgs,
     })
-  }, 1000)
+  }, 1300)
 }
 
 document.querySelector('.about').addEventListener('click', () => {

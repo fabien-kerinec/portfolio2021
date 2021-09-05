@@ -128,6 +128,59 @@ body {
           background-size: 100% 200%;
           opacity: 0;
           margin: 0;
+          &.more {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px white;
+            background-image: linear-gradient(
+              0deg,
+              $secondary-color,
+              $secondary-color 30%,
+              $main-color 60%
+            );
+            background-position: 100% 0%;
+            letter-spacing: 0.25em;
+            opacity: 0;
+            margin: 0;
+            &.second {
+              font-size: 1vw;
+              background-clip: none;
+              -webkit-text-stroke: none;
+            }
+            &.nolink {
+              pointer-events: none;
+            }
+            a {
+              text-decoration: none;
+              color: $secondary-color;
+              &:visited {
+                color: $secondary-color;
+              }
+
+              position: relative;
+              &:after {
+                opacity: 0;
+                transition: opacity 0.3s;
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: $secondary-color;
+              }
+            }
+            &:hover {
+              cursor: pointer;
+              background-position: 100% 100%;
+              a {
+                &:after {
+                  opacity: 1;
+                }
+              }
+            }
+          }
         }
         h2 {
           font-weight: normal;
@@ -145,58 +198,6 @@ body {
           background-size: 100% 200%;
           opacity: 0;
           margin: 0;
-        }
-
-        > p.more {
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          font-size: 3vw;
-          -webkit-text-stroke: 1px white;
-          background-image: linear-gradient(
-            0deg,
-            $secondary-color,
-            $secondary-color 30%,
-            $main-color 60%
-          );
-          background-position: 100% 0%;
-          letter-spacing: 0.25em;
-          opacity: 0;
-          margin: 0;
-          &.second {
-            font-size: 1vw;
-            background-clip: none;
-            -webkit-text-stroke: none;
-          }
-          a {
-            text-decoration: none;
-            color: $secondary-color;
-            &:visited {
-              color: $secondary-color;
-            }
-
-            position: relative;
-            &:after {
-              opacity: 0;
-              transition: opacity 0.3s;
-              content: '';
-              position: absolute;
-              bottom: -5px;
-              left: 0;
-              width: 100%;
-              height: 2px;
-              background: $secondary-color;
-            }
-          }
-          &:hover {
-            cursor: pointer;
-            background-position: 100% 100%;
-            a {
-              &:after {
-                opacity: 1;
-              }
-            }
-          }
         }
 
         img,
@@ -243,10 +244,17 @@ body {
             width: 90%;
             top: 80%;
             h2 {
-              font-size: 8vw;
+              font-size: 5vh;
             }
             p {
-              font-size: 7vw;
+              font-size: 3vh;
+              &.more {
+                font-size: 2vh;
+
+                &.second {
+                  font-size: 2vh;
+                }
+              }
             }
           }
         }
@@ -512,7 +520,13 @@ body {
       &.active {
         // background-color: white;
         transform: scale3d(0, 1, 1);
+      }
+
+      @media screen and (max-width: 967px) {
+        margin-bottom: 10px;
         span {
+          width: 20px;
+          height: 4px;
         }
       }
     }
@@ -529,8 +543,6 @@ body {
         &.active {
           background-color: white;
           transform: scale3d(1, 1, 1);
-          span {
-          }
         }
         &:hover {
           cursor: pointer;
@@ -601,6 +613,7 @@ body {
     line-height: 1;
     height: 1.5vw;
   }
+
   p:hover {
     > span {
       > span:first-child {
@@ -623,6 +636,15 @@ body {
     opacity: 1;
     transform: translateY(0px);
     pointer-events: initial;
+  }
+  @media screen and (max-width: 967px) {
+    top: 20px;
+    right: 20px;
+    p,
+    span {
+      font-size: 2vh;
+      height: 2vh;
+    }
   }
 }
 .closeAbout {
@@ -673,6 +695,15 @@ body {
     opacity: 1;
     transform: translateY(0px);
     pointer-events: initial;
+  }
+  @media screen and (max-width: 967px) {
+    top: 20px;
+    right: 20px;
+    p,
+    span {
+      font-size: 2vh;
+      height: 2vh;
+    }
   }
 }
 .aboutContent {
@@ -749,6 +780,17 @@ body {
     p {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  @media screen and (max-width: 967px) {
+    h2 {
+      font-size: 4vh;
+    }
+    p {
+      font-size: 2vh;
+      &:first-of-type {
+        font-size: 2.5vh;
+      }
     }
   }
 }
