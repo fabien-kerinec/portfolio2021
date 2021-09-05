@@ -331,7 +331,12 @@ function doneLoad(instance) {
 }
 
 document.querySelector('.about').addEventListener('click', () => {
-  console.log(current)
+  document.querySelector('.about').classList.remove('display')
+  document.querySelector('.aboutContent').classList.add('display')
+  setTimeout(() => {
+    document.querySelector('.closeAbout').classList.add('display')
+    // document.querySelector('.about').classList.remove('display')
+  }, 1000)
   let itemToMask = document.querySelector("section[data-id='" + current + "']")
 
   if (itemToMask.classList.contains('displayup')) {
@@ -366,4 +371,16 @@ document.querySelector('.about').addEventListener('click', () => {
 
   document.querySelector('.navigate').classList.remove('display')
   document.querySelector('.main').classList.remove('display')
+})
+document.querySelector('.closeAbout').addEventListener('click', function () {
+  document.querySelector('.closeAbout').classList.remove('display')
+  document.querySelector('.aboutContent').classList.remove('display')
+  setTimeout(() => {
+    document.querySelector('.about').classList.add('display')
+    document.querySelector('.navigate').classList.add('display')
+    document.querySelector('.main').classList.add('display')
+    document
+      .querySelector("section[data-id='" + current + "']")
+      .classList.add('displaydown', 'display')
+  }, 1000)
 })
