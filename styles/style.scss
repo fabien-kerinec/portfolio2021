@@ -687,6 +687,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
   padding-top: 20vh;
+  opacity: 0;
   h2 {
     font-size: 3vw;
     text-transform: uppercase;
@@ -743,6 +744,7 @@ body {
   }
   &.display {
     pointer-events: initial;
+    opacity: 1;
     h2,
     p {
       opacity: 1;
