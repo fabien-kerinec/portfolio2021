@@ -284,7 +284,8 @@ function resetProgress() {
   loadedImageCount = 0
 }
 function updateProgress(value) {
-  percent = (value * 35) / imageCount
+  percent = (value * 30) / imageCount
+  console.log(percent)
   loader.goToAndStop(percent, true)
 }
 
@@ -295,13 +296,19 @@ function onProgress(imgLoad, image) {
   loadedImageCount++
   updateProgress(loadedImageCount)
 }
+
 function doneLoad(instance) {
-  var valuedone = 35
-  setInterval(() => {
-    valuedone++
-    percent = (valuedone * 70) / imageCount
-    loader.goToAndStop(percent, true)
-  }, 1000 / 35)
+  var intervalDone = setInterval(() => {
+    // console.log(valuedone)
+    if (percent <= 75) {
+      percent++
+
+      console.log(percent)
+      loader.goToAndStop(percent, true)
+    } else {
+      clearInterval(intervalDone)
+    }
+  }, 50)
   setTimeout(() => {
     console.log('done')
     loaderElement.classList.add('finished')
@@ -328,12 +335,12 @@ function doneLoad(instance) {
           .classList.add('display')
         document.querySelector('.about').classList.add('display')
       }, 750)
-    }, 200)
+    }, 700)
     new displacementSlider({
       parent: el,
       images: imgs,
     })
-  }, 1300)
+  }, 50 * 70)
 }
 
 document.querySelector('.about').addEventListener('click', () => {
