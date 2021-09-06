@@ -137,10 +137,10 @@ const displacementSlider = function (opts) {
   let images = opts.images,
     image,
     sliderImages = []
-  console.log(images)
+  // console.log(images)
   let canvasWidth = images[0].clientWidth
   let canvasHeight = images[0].clientHeight
-  console.log(canvasWidth, canvasHeight)
+  // console.log(canvasWidth, canvasHeight)
   let parent = opts.parent
   let renderWidth = Math.max(
     document.documentElement.clientWidth,
@@ -173,7 +173,7 @@ const displacementSlider = function (opts) {
 
   let loader = new THREE.TextureLoader()
   loader.crossOrigin = 'anonymous'
-  console.log(images)
+  // console.log(images)
   images.forEach((img) => {
     image = loader.load(img.getAttribute('src') + '?v=' + Date.now())
     image.magFilter = image.minFilter = THREE.LinearFilter
@@ -225,7 +225,7 @@ const displacementSlider = function (opts) {
     pagButtons.forEach((el) => {
       el.addEventListener('click', function () {
         if (!isAnimating) {
-          console.log('click')
+          // console.log('click')
 
           isAnimating = true
 
@@ -269,7 +269,7 @@ const displacementSlider = function (opts) {
 }
 var imgLoad, imageCount, loadedImageCount
 window.addEventListener('DOMContentLoaded', (event) => {
-  console.log('DOM entièrement chargé et analysé')
+  // console.log('DOM entièrement chargé et analysé')
   imgLoad = imagesLoaded(document.querySelectorAll('img'))
   imageCount = document.querySelectorAll('img').length
   loadedImageCount = 0
@@ -285,12 +285,12 @@ function resetProgress() {
 }
 function updateProgress(value) {
   percent = (value * 30) / imageCount
-  console.log(percent)
+  // console.log(percent)
   loader.goToAndStop(percent, true)
 }
 
 function onProgress(imgLoad, image) {
-  console.log('progress')
+  // console.log('progress')
 
   // update progress element
   loadedImageCount++
@@ -303,17 +303,17 @@ function doneLoad(instance) {
     if (percent <= 75) {
       percent++
 
-      console.log(percent)
+      // console.log(percent)
       loader.goToAndStop(percent, true)
     } else {
       clearInterval(intervalDone)
     }
   }, 50)
   setTimeout(() => {
-    console.log('done')
+    // console.log('done')
     loaderElement.classList.add('finished')
     document.body.classList.remove('loading')
-    console.log(document.querySelector('body'))
+    // console.log(document.querySelector('body'))
     const el = document.querySelector('#imgitem')
     const imgs = Array.from(el.querySelectorAll('img'))
     let scenes = []
